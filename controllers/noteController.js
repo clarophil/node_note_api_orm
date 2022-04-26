@@ -59,7 +59,7 @@ exports.noteDelete = async function (req, res) {
 
 exports.noteFindOne = async function (req, res) {
     if (req.params.note_id) {
-        await Note.findOne({ where: { note_id: req.params.note_id } })
+        await Note.findOne({ where: { note_id: req.params.note_id }, include: [Category] })
             .then(data => {
                 res.json(data);
             })
