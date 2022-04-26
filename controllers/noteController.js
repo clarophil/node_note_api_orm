@@ -14,7 +14,7 @@ exports.noteList = async function (req, res) {
 }
 
 exports.noteCreate = async function (req, res) {
-    let note = Note.build({ title: req.body.title, content: req.body.content, category: req.body.category})
+    let note = Note.build({ title: req.body.title, content: req.body.content, category_id: req.body.category_id})
     await note.save()
         .then(data => {
             console.log(note.toJSON());
@@ -29,7 +29,7 @@ exports.noteCreate = async function (req, res) {
 exports.noteUpdate = async function (req, res) {
     if (req.params.note_id > 0) {
         await Note.update(
-            { title: req.body.title, content: req.body.content, category: req.body.category},
+            { title: req.body.title, content: req.body.content, category_id: req.body.category_id},
             { where: { note_id: req.params.note_id } }
         )
             .then(data => {

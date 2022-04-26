@@ -9,7 +9,8 @@ const Note = db.define('note', {
         primaryKey: true
     },
     title: { type: Sequelize.STRING, allowNull: false },
-    content: { type: Sequelize.STRING, allowNull: false }
+    content: { type: Sequelize.STRING, allowNull: false },
+    category_id: { type: Sequelize.INTEGER, allowNull: false}
 })
 
 module.exports = Note
