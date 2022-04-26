@@ -1,8 +1,9 @@
 const db = require('../models/index');
 const Note = db.Note;
+const Category = db.Category;
 
 exports.noteList = async function (req, res) {
-    await Note.findAll({include: [category]})
+    await Note.findAll({include: [Category]})
         .then(data => {
             console.log("All notes:", JSON.stringify(data, null, 2));
             res.json(data);
